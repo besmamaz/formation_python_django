@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <title>Ajouter un étudiant</title>
+</head>
+<body>
+    <h1>Ajouter un étudiant</h1>
+    <form method="post" action ="{% url 'n_add_student' %}">
+        {% csrf_token %}
+        <div>
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+        <div>
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
+        <div>
+            <label for="matricule">Matricule:</label>
+            <input type="text" id="matricule" name="matricule" required>
+        </div>
+        <button type="submit">Enregistrer</button>
+       
+    </form>
+    <a href="{% url 'n_student' %}"><button type="button">student_list</button></a>
+    <a href="{% url 'n_add_numbers' %}"><button type="button">Add</button></a>
+    <a href="{% url 'n_add_numbers2' %}"><button type="button">Add2</button></a>
+   
+</body>
+</html>
